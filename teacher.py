@@ -1,10 +1,11 @@
-class Student(object):
+from collections import defaultdict
+class Teacher(object):
     def __init__(self):
-        self.first_name=None
+
+        #class variables
+        self.first_ame=None
         self.sur_name=None
         self.gradeLevel=None
-        self.gpa=None
-        self.teacher=None
         self.school=None
     #get first_name
     def get_first_name(self):
@@ -24,18 +25,6 @@ class Student(object):
     #set gradeLevel
     def set_gradeLevel(self,gradeLevel):
         self.gradeLevel = gradeLevel
-    #set gpa
-    def get_gpa(self):
-        return self.gpa
-    #set gpa
-    def set_gpa(self,gpa):
-        self.gpa = gpa
-    #get teacher
-    def get_teacher(self):
-        return self.teacher
-    #set teacher
-    def set_teacher(self,teacher):
-        self.teacher = teacher
     #get school
     def get_school(self):
         return self.school
