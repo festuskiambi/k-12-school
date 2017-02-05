@@ -32,7 +32,7 @@ def main():
          #check the teachers in the selected grade
         teacher = Teacher()
         if not teachers:
-            print "there are no teachers in " +my_grade
+            print "\nthere are no teachers in " +my_grade
             print "\ndo you want to add a teacher \n"
             print " 1. Yes \n    or \n 2. No"
             option = raw_input("\n Type 1 if you want to add a teacher or type 2 to exit  ")
@@ -46,12 +46,12 @@ def main():
                 print " 1. Yes \n    or \n 2. No"
                 option = raw_input("\n Type 1 if you want to add a students or type 2 to exit  ")
                 if option =="1":
-                    print "\nYou are adding a  teacher\n"
+                    print "\nYou are adding a  student\n"
                     no_of_students = len(students)
                     while no_of_students<=10:
-                        first_name = raw_input("Enter student's first name: ")
+                        first_name = raw_input("\nEnter student's first name: ")
                         sur_name= raw_input("Enter  student's sur name: ")
-                        gpa = raw_input("\nEnter  student's gpa: ")
+                        gpa = raw_input("Enter  student's gpa: ")
 
                         create_a_student(first_name,sur_name,my_grade,gpa,teacher_name,school)
                         no_of_students+=1
@@ -62,7 +62,7 @@ def main():
             elif option == "2":
                 exit()
 
-
+#a function to create a teacher
 def create_a_teacher(first_name,sur_name,gradeLevel,school):
     teacher= Teacher()
     teacher.set_first_name(first_name)
@@ -70,10 +70,7 @@ def create_a_teacher(first_name,sur_name,gradeLevel,school):
     teacher.set_gradeLevel(gradeLevel)
     teacher.set_school(school)
     teachers.append(teacher)
-
-
-
-
+# a function to create a teacher
 def create_a_student(first_name,sur_name,gradeLevel,gpa,teacher,school):
     student = Student()
     student.set_first_name(first_name)
@@ -82,12 +79,5 @@ def create_a_student(first_name,sur_name,gradeLevel,gpa,teacher,school):
     student.set_gpa(gpa)
     student.set_school(school)
     students.append(student)
-
-
-
-
-
-
-
-
-main()
+if __name__ == "__main__":
+    main()
