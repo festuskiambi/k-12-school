@@ -1,3 +1,4 @@
+from collections import defaultdict
 class Teacher(object):
     def __init__(self):
 
@@ -27,5 +28,6 @@ class Teacher(object):
     #get school
     def get_school(self):
         return self.school
+    #set school
     def set_school(self,school):
         self.school = school
