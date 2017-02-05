@@ -25,10 +25,10 @@ class Student(object):
     def set_gradeLevel(self):
         self.gradeLevel = gradeLevel
     #set gpa
-    def get_sur_name(self):
+    def get_gpa(self):
         return self.gpa
-    #set sur_name
-    def set_sur_name(self):
+    #set gpa
+    def set_gpa(self):
         self.gpa = gpa
     #get teacher
     def get_sur_name(self):
