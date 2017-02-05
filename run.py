@@ -1,5 +1,5 @@
 #!/usr/bin/env pythonf
-import pickle
+
 from student import Student
 from teacher import Teacher
 
@@ -14,7 +14,7 @@ def main():
 
     school = raw_input("Enter the name of your school:  \n")
     counter = 1
-    count = 1
+
     if school=="":
         print "Please enter your school name"
         school = raw_input("Enter the name of your school:  \n")
@@ -24,72 +24,44 @@ def main():
         for gradeLevel in gradelevels:
              print str(counter) + "." + gradeLevel
              counter +=1
-        selected_grade = raw_input("\n type  a number that corresponds to  your gradeLevel, eg type 2 to select grade1:  ")
+        selected_grade = raw_input("\n enter  a number that corresponds to  a gradeLevel, eg type 2 to select grade1:  ")
         selected_grade = int(selected_grade)
         my_grade = gradelevels[selected_grade -1]
         print "You selected grade is: " + my_grade
 
-        """  check the teachers in the selected grade """
+         #check the teachers in the selected grade
         teacher = Teacher()
-        for teacher in teachers:
-            if  teacher.get_gradeLevel() ==my_grade:
-                print "these are the teachers in this grade:"
-                print str(counter) + teacher.get_first_name ()+ "  " + teacher.get_sur_name()
-                count +=1
-                teacher_name = raw_input("\n enter the name of your teacher from the list shown obove  ")
-            else:
-                print "there no teachers in  this your grade"
-                print "\ndo you want to add a teacher \n"
-                print " 1. A Yes \n    or \n 2. No"
-                option = raw_input("\n Type 1 if you want to add a teacher or type 2 to exit  ")
+        if not teachers:
+            print "there are no teachers in " +my_grade
+            print "\ndo you want to add a teacher \n"
+            print " 1. Yes \n    or \n 2. No"
+            option = raw_input("\n Type 1 if you want to add a teacher or type 2 to exit  ")
+            if option =="1":
+                print "\nYou are adding a  teacher\n"
+                first_name = raw_input("Enter teacher's first name: ")
+                sur_name= raw_input("\nEnter teacher's sur name: ")
+                create_a_teacher(first_name,sur_name,my_grade,school)
+                teacher_name = first_name + "  " + sur_name
+                print "Do you want to add students to " + teacher_name  +"?"
+                print " 1. Yes \n    or \n 2. No"
+                option = raw_input("\n Type 1 if you want to add a students or type 2 to exit  ")
                 if option =="1":
                     print "\nYou are adding a  teacher\n"
-                    first_name = raw_input("Enter your first name: ")
-                    sur_name= raw_input("\nEnter your sur name: ")
-                    create_a_teacher(first_name,sur_name,my_grade,school)
-                elif option == "2":
+                    no_of_students = len(students)
+                    while no_of_students<=10:
+                        first_name = raw_input("Enter student's first name: ")
+                        sur_name= raw_input("Enter  student's sur name: ")
+                        gpa = raw_input("\nEnter  student's gpa: ")
+
+                        create_a_student(first_name,sur_name,my_grade,gpa,teacher_name,school)
+                        no_of_students+=1
+                elif  option == "2":
                     exit()
 
 
+            elif option == "2":
+                exit()
 
-        
-
-    option = raw_input("\n Type 1 if you want to add a teacher or type 2 to exit  ")
-    if option =="1":
-
-        print
-
-    elif option == "2":
-        teacher = Teacher()
-        print "\nYou are adding a student\n"
-        #check if there teachers in
-        if not teachers:
-            print "there are no teachers in your school try again later "
-            exit()
-        else:
-            for teacher in teachers:
-
-                if  teacher.get_gradeLevel() ==my_grade:
-                    print "these are the teachers in your grade:"
-                    print str(counter) + teacher.get_first_name ()+ "  " + teacher.get_sur_name()
-                    count +=1
-                    my_teacher = raw_input("\n enter the name of your teacher from the list shown obove  ")
-                else:
-                    print "there no teachers in your grade"
-
-
-            for student in students:
-                print student.get_gradeLevel()
-
-
-        first_name = raw_input("Enter your first name: ")
-        sur_name= raw_input("Enter your sur name: ")
-        gpa = raw_input("\nEnter your gpa: ")
-
-        create_a_student(first_name,sur_name,my_grade,gpa,my_teacher,school)
-
-    else:
-        print "Please enter a valid option"
 
 def create_a_teacher(first_name,sur_name,gradeLevel,school):
     teacher= Teacher()
@@ -110,7 +82,7 @@ def create_a_student(first_name,sur_name,gradeLevel,gpa,teacher,school):
     student.set_gpa(gpa)
     student.set_school(school)
     students.append(student)
-def add_students_to_a_teacher():
+
 
 
 
