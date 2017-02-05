@@ -28,20 +28,40 @@ def main():
         selected_grade = int(selected_grade)
         my_grade = gradelevels[selected_grade -1]
         print "You selected grade is: " + my_grade
-        print "\nAre you a\n"
-        print " 1.Teacher \n    or \n 2. Student?"
 
-    option = raw_input("\n Type 1 if you are a teacher or type 2 if you are a student:  ")
+        """  check the teachers in the selected grade """
+        teacher = Teacher()
+        for teacher in teachers:
+            if  teacher.get_gradeLevel() ==my_grade:
+                print "these are the teachers in this grade:"
+                print str(counter) + teacher.get_first_name ()+ "  " + teacher.get_sur_name()
+                count +=1
+                teacher_name = raw_input("\n enter the name of your teacher from the list shown obove  ")
+            else:
+                print "there no teachers in  this your grade"
+                print "\ndo you want to add a teacher \n"
+                print " 1. A Yes \n    or \n 2. No"
+                option = raw_input("\n Type 1 if you want to add a teacher or type 2 to exit  ")
+                if option =="1":
+                    print "\nYou are adding a  teacher\n"
+                    first_name = raw_input("Enter your first name: ")
+                    sur_name= raw_input("\nEnter your sur name: ")
+                    create_a_teacher(first_name,sur_name,my_grade,school)
+                elif option == "2":
+                    exit()
+
+
+
+        
+
+    option = raw_input("\n Type 1 if you want to add a teacher or type 2 to exit  ")
     if option =="1":
-        print "\nYou are a teacher\n"
-        first_name = raw_input("Enter your first name: ")
-        sur_name= raw_input("\nEnter your sur name: ")
-        create_a_teacher(first_name,sur_name,my_grade,school)
-        main()
+
+        print
 
     elif option == "2":
         teacher = Teacher()
-        print "\nYou are a student\n"
+        print "\nYou are adding a student\n"
         #check if there teachers in
         if not teachers:
             print "there are no teachers in your school try again later "
@@ -90,6 +110,7 @@ def create_a_student(first_name,sur_name,gradeLevel,gpa,teacher,school):
     student.set_gpa(gpa)
     student.set_school(school)
     students.append(student)
+def add_students_to_a_teacher():
 
 
 
