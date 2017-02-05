@@ -1,9 +1,10 @@
 class Teacher(object):
     def __init__(self):
+
         #class variables
-        self.fName
-        self.sName
-        self.gradeLevel
+        self.fName=None
+        self.sName=None
+        self.gradeLevel=None
     #get fName
     def getfName(self):
         return self.fName
@@ -14,11 +15,11 @@ class Teacher(object):
     def getsName(self):
         return self.sName
     #set sName
-    def setsName(self):
+    def setsName(self,sName):
         self.sName = sName
     #get gradeLevel
     def getgradeLevel(self):
         return self.gradeLevel
     #set gradeLevel
-    def setgradeLevel(self):
+    def setgradeLevel(self,gradeLevel):
         self.gradeLevel = gradeLevel
